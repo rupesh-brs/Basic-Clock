@@ -14,12 +14,15 @@ function setClock() {
   const secondHand = document.getElementById('secondHand');
   const minuteHand = document.getElementById('minuteHand');
   const hourHand = document.getElementById('hourHand');
+  const timeDisplay = document.getElementById('timeDisplay');
 
   // Rotate the hands based on the time
   secondHand.style.transform = `translate(-50%, -100%) rotate(${secondDegrees}deg)`;
   minuteHand.style.transform = `translate(-50%, -100%) rotate(${minuteDegrees}deg)`;
   hourHand.style.transform = `translate(-50%, -100%) rotate(${hourDegrees}deg)`;
 
+  const formattedTime = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+  timeDisplay.textContent = formattedTime;
 }
 setInterval(setClock, 1000);
 
